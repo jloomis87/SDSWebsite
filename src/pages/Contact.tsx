@@ -69,93 +69,129 @@ export default function Contact() {
             }}>
               <Grid container spacing={6}>
                 <Grid item xs={12}>
-                  <Box sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    mb: 3,
-                    transition: 'transform 0.2s',
-                    '&:hover': {
-                      transform: 'translateY(-4px)'
-                    }
-                  }}>
-                    <Box sx={{
-                      bgcolor: 'primary.main',
-                      borderRadius: 2,
-                      p: 2,
-                      mr: 3,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
+                  <a 
+                    href="tel:+16238103539"
+                    style={{ 
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      display: 'block'
+                    }}
+                  >
+                    <Box sx={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      mb: 3,
+                      transition: 'all 0.2s ease-in-out',
+                      cursor: 'pointer',
+                      '&:hover': {
+                        transform: 'translateY(-4px)',
+                        '& .phone-icon-box': {
+                          bgcolor: 'primary.dark',
+                        },
+                        '& .phone-number': {
+                          color: 'primary.dark',
+                        }
+                      }
                     }}>
-                      <PhoneIcon sx={{ fontSize: 40, color: 'white' }} />
-                    </Box>
-                    <Box>
-                      <Typography variant="h6" gutterBottom color="text.secondary" sx={{ fontWeight: 500 }}>
-                        Phone
-                      </Typography>
-                      <Typography variant="h4" color="primary" sx={{ fontWeight: 'bold' }}>
-                        <a 
-                          href="tel:+16238103539" 
-                          style={{ 
-                            textDecoration: 'none', 
-                            color: 'inherit'
+                      <Box 
+                        className="phone-icon-box"
+                        sx={{
+                          bgcolor: 'primary.main',
+                          borderRadius: 2,
+                          p: 2,
+                          mr: 3,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          transition: 'background-color 0.2s'
+                        }}
+                      >
+                        <PhoneIcon sx={{ fontSize: 40, color: 'white' }} />
+                      </Box>
+                      <Box>
+                        <Typography variant="h6" gutterBottom color="text.secondary" sx={{ fontWeight: 500 }}>
+                          Phone
+                        </Typography>
+                        <Typography 
+                          variant="h4" 
+                          className="phone-number"
+                          sx={{ 
+                            fontWeight: 'bold',
+                            color: 'primary.main',
+                            transition: 'color 0.2s'
                           }}
                         >
                           (623) 810-3539
-                        </a>
-                      </Typography>
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
+                  </a>
                 </Grid>
 
                 <Grid item xs={12}>
-                  <Box sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    mb: 3,
-                    transition: 'transform 0.2s',
-                    '&:hover': {
-                      transform: 'translateY(-4px)'
-                    }
-                  }}>
-                    <Box sx={{
-                      bgcolor: 'primary.main',
-                      borderRadius: 2,
-                      p: 2,
-                      mr: 3,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
+                  <a 
+                    href="mailto:jploomis2002@gmail.com"
+                    style={{ 
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      display: 'block'
+                    }}
+                  >
+                    <Box sx={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      mb: 3,
+                      transition: 'all 0.2s ease-in-out',
+                      cursor: 'pointer',
+                      '&:hover': {
+                        transform: 'translateY(-4px)',
+                        '& .email-icon-box': {
+                          bgcolor: 'primary.dark',
+                        },
+                        '& .email-text': {
+                          color: 'primary.dark',
+                        }
+                      }
                     }}>
-                      <EmailIcon sx={{ fontSize: 40, color: 'white' }} />
-                    </Box>
-                    <Box>
-                      <Typography variant="h6" gutterBottom color="text.secondary" sx={{ fontWeight: 500 }}>
-                        Email
-                      </Typography>
-                      <Typography variant="h5" color="primary">
-                        <a 
-                          href="mailto:jploomis2002@gmail.com"
-                          style={{ 
-                            textDecoration: 'none', 
-                            color: 'inherit'
+                      <Box 
+                        className="email-icon-box"
+                        sx={{
+                          bgcolor: 'primary.main',
+                          borderRadius: 2,
+                          p: 2,
+                          mr: 3,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          transition: 'background-color 0.2s'
+                        }}
+                      >
+                        <EmailIcon sx={{ fontSize: 40, color: 'white' }} />
+                      </Box>
+                      <Box>
+                        <Typography variant="h6" gutterBottom color="text.secondary" sx={{ fontWeight: 500 }}>
+                          Email
+                        </Typography>
+                        <Typography 
+                          variant="h5" 
+                          className="email-text"
+                          sx={{ 
+                            fontWeight: 'bold',
+                            color: 'primary.main',
+                            transition: 'color 0.2s'
                           }}
                         >
                           jploomis2002@gmail.com
-                        </a>
-                      </Typography>
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
+                  </a>
                 </Grid>
 
                 <Grid item xs={12}>
                   <Box sx={{ 
                     display: 'flex', 
-                    alignItems: 'flex-start',
-                    transition: 'transform 0.2s',
-                    '&:hover': {
-                      transform: 'translateY(-4px)'
-                    }
+                    alignItems: 'flex-start'
                   }}>
                     <Box sx={{
                       bgcolor: 'primary.main',
