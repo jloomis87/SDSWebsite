@@ -61,7 +61,8 @@ export default function Home() {
             height: '100%',
             display: 'flex',
             alignItems: 'center',
-            pt: '64px', // AppBar height
+            pt: { xs: '80px', sm: '64px' }, // Adjusted for mobile
+            px: { xs: 2, sm: 3, md: 4 }, // Responsive padding
           }}
         >
           <Grid container spacing={4}>
@@ -70,20 +71,56 @@ export default function Home() {
                 variant="h2" 
                 component="h1" 
                 gutterBottom
-                sx={{ fontWeight: 'bold' }}
+                sx={{ 
+                  fontWeight: 'bold',
+                  fontSize: { 
+                    xs: '2.5rem',  // Smaller font on mobile
+                    sm: '3.5rem',  // Medium size on tablet
+                    md: '4rem'     // Full size on desktop
+                  },
+                  lineHeight: { 
+                    xs: 1.2,      // Tighter line height on mobile
+                    sm: 1.3 
+                  },
+                  wordBreak: 'break-word', // Prevents overflow
+                  mb: { xs: 2, sm: 3 }     // Adjusted spacing
+                }}
               >
                 Reliable Pharmaceutical Delivery
               </Typography>
-              <Typography variant="h5" paragraph sx={{ mb: 4 }}>
+              <Typography 
+                variant="h5" 
+                sx={{ 
+                  mb: { xs: 3, sm: 4 },
+                  fontSize: { 
+                    xs: '1.1rem',
+                    sm: '1.3rem',
+                    md: '1.5rem'
+                  },
+                  lineHeight: 1.4,
+                  maxWidth: '600px' // Prevents lines from getting too long
+                }}
+              >
                 Your trusted partner in Arizona for secure and timely pharmaceutical deliveries.
                 Same-day service available across the state.
               </Typography>
-              <Box sx={{ display: 'flex', gap: 2 }}>
+              <Box sx={{ 
+                display: 'flex', 
+                gap: { xs: 1, sm: 2 },
+                flexDirection: { xs: 'column', sm: 'row' } // Stack buttons on mobile
+              }}>
                 <Button 
                   variant="contained" 
                   color="primary"
                   size="large"
                   onClick={() => navigate('/contact')}
+                  fullWidth={false}
+                  sx={{
+                    py: { xs: 1.5, sm: 2 },
+                    px: { xs: 3, sm: 4 },
+                    fontSize: { xs: '1rem', sm: '1.1rem' },
+                    minWidth: { xs: '200px', sm: 'auto' }
+                  }}
                 >
                   Contact Us
                 </Button>
@@ -92,8 +129,13 @@ export default function Home() {
                   color="inherit"
                   size="large"
                   onClick={() => navigate('/about')}
+                  fullWidth={false}
                   sx={{ 
                     borderColor: 'white',
+                    py: { xs: 1.5, sm: 2 },
+                    px: { xs: 3, sm: 4 },
+                    fontSize: { xs: '1rem', sm: '1.1rem' },
+                    minWidth: { xs: '200px', sm: 'auto' },
                     '&:hover': {
                       borderColor: 'white',
                       backgroundColor: 'rgba(255, 255, 255, 0.1)',
