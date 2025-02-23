@@ -12,12 +12,12 @@ export default function About() {
       minHeight: '100vh',
       margin: 0,
       padding: 0,
-      pt: '64px', // Account for AppBar
+      pt: { xs: '100px', sm: '120px' }, // Adjusted for AppBar + spacing
     }}>
       {/* About Section */}
       <Box sx={{ 
         bgcolor: 'grey.100', 
-        py: 12,
+        py: { xs: 6, sm: 8, md: 12 },
         position: 'relative',
         '&::before': {
           content: '""',
@@ -200,15 +200,32 @@ export default function About() {
       </Box>
 
       {/* Features Section */}
-      <Box sx={{ bgcolor: 'white', py: 8 }}>
+      <Box sx={{ bgcolor: 'white', py: { xs: 6, sm: 8 } }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h3" gutterBottom align="center" sx={{ mb: 6 }}>
+          <Typography 
+            variant="h4" 
+            component="h3" 
+            gutterBottom 
+            align="center" 
+            sx={{ 
+              mb: { xs: 4, sm: 6 },
+              fontSize: { xs: '2rem', sm: '2.5rem' }
+            }}
+          >
             Our Core Features
           </Typography>
           <Grid container spacing={4}>
             <Grid item xs={12} md={4}>
-              <Paper elevation={3} sx={{ p: 4, height: '100%', textAlign: 'center' }}>
-                <SecurityIcon color="primary" sx={{ fontSize: 48, mb: 2 }} />
+              <Paper elevation={3} sx={{ 
+                p: { xs: 3, sm: 4 }, 
+                height: '100%', 
+                textAlign: 'center',
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'translateY(-8px)'
+                }
+              }}>
+                <SecurityIcon color="primary" sx={{ fontSize: { xs: 40, sm: 48 }, mb: 2 }} />
                 <Typography variant="h5" gutterBottom>
                   Secure Transport
                 </Typography>
@@ -218,8 +235,16 @@ export default function About() {
               </Paper>
             </Grid>
             <Grid item xs={12} md={4}>
-              <Paper elevation={3} sx={{ p: 4, height: '100%', textAlign: 'center' }}>
-                <SpeedIcon color="primary" sx={{ fontSize: 48, mb: 2 }} />
+              <Paper elevation={3} sx={{ 
+                p: { xs: 3, sm: 4 }, 
+                height: '100%', 
+                textAlign: 'center',
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'translateY(-8px)'
+                }
+              }}>
+                <SpeedIcon color="primary" sx={{ fontSize: { xs: 40, sm: 48 }, mb: 2 }} />
                 <Typography variant="h5" gutterBottom>
                   Fast Delivery
                 </Typography>
@@ -229,8 +254,16 @@ export default function About() {
               </Paper>
             </Grid>
             <Grid item xs={12} md={4}>
-              <Paper elevation={3} sx={{ p: 4, height: '100%', textAlign: 'center' }}>
-                <LocalShippingIcon color="primary" sx={{ fontSize: 48, mb: 2 }} />
+              <Paper elevation={3} sx={{ 
+                p: { xs: 3, sm: 4 }, 
+                height: '100%', 
+                textAlign: 'center',
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'translateY(-8px)'
+                }
+              }}>
+                <LocalShippingIcon color="primary" sx={{ fontSize: { xs: 40, sm: 48 }, mb: 2 }} />
                 <Typography variant="h5" gutterBottom>
                   Temperature Control
                 </Typography>

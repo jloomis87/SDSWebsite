@@ -12,8 +12,8 @@ export default function Contact() {
       padding: 0,
       display: 'flex',
       alignItems: { xs: 'flex-start', md: 'center' },
-      pt: { xs: '80px', md: '64px' }, // Adjusted AppBar height
-      pb: { xs: 2, md: 0 },
+      pt: { xs: '100px', sm: '120px' },
+      pb: { xs: 4, md: 0 },
       position: 'relative',
       '&::before': {
         content: '""',
@@ -73,6 +73,7 @@ export default function Contact() {
               overflow: 'hidden'
             }}>
               <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
+                {/* Phone Section */}
                 <Grid item xs={12}>
                   <a 
                     href="tel:+16238103539"
@@ -137,6 +138,7 @@ export default function Contact() {
                   </a>
                 </Grid>
 
+                {/* Email Section */}
                 <Grid item xs={12}>
                   <a 
                     href="mailto:jploomis2002@gmail.com"
@@ -202,6 +204,7 @@ export default function Contact() {
                   </a>
                 </Grid>
 
+                {/* Hours Section */}
                 <Grid item xs={12}>
                   <Box sx={{ 
                     display: 'flex', 
@@ -272,6 +275,7 @@ export default function Contact() {
                   </Box>
                 </Grid>
 
+                {/* Call to Action */}
                 <Grid item xs={12}>
                   <Box sx={{ 
                     mt: { xs: 1, sm: 2 },

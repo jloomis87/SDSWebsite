@@ -125,6 +125,7 @@ function NavigationMenu() {
                 py: 1.5,
                 '&:hover': {
                   bgcolor: 'rgba(255, 255, 255, 0.1)',
+                  color: 'grey.300'
                 }
               }}
             >
@@ -148,7 +149,8 @@ function NavigationMenu() {
             '&:hover': { 
               bgcolor: 'rgba(255, 255, 255, 0.1)',
               transform: 'translateY(-2px)',
-              transition: 'transform 0.2s ease-in-out'
+              transition: 'transform 0.2s ease-in-out',
+              color: 'grey.300'
             }
           }}
         >
