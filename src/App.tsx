@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import {
   AppBar,
@@ -7,10 +7,15 @@ import {
   Toolbar,
   Typography,
   CssBaseline,
-  IconButton
+  IconButton,
+  Menu,
+  MenuItem,
+  useTheme,
+  useMediaQuery
 } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
+import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -45,6 +50,114 @@ const theme = createTheme({
     },
   },
 });
+
+function NavigationMenu() {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const navigate = useNavigate();
+
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClick = (path: string) => {
+    setAnchorEl(null);
+    navigate(path);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const menuItems = [
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Contact', path: '/contact' },
+  ];
+
+  if (isMobile) {
+    return (
+      <>
+        <IconButton
+          size="large"
+          edge="end"
+          color="inherit"
+          aria-label="menu"
+          onClick={handleMenu}
+          sx={{
+            ml: 2,
+            '&:hover': {
+              bgcolor: 'rgba(255, 255, 255, 0.1)',
+            }
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Menu
+          id="menu-appbar"
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+          sx={{
+            '& .MuiPaper-root': {
+              bgcolor: 'primary.main',
+              color: 'white',
+              minWidth: '200px',
+              mt: 5
+            }
+          }}
+        >
+          {menuItems.map((item) => (
+            <MenuItem 
+              key={item.path}
+              onClick={() => handleMenuClick(item.path)}
+              sx={{
+                py: 1.5,
+                '&:hover': {
+                  bgcolor: 'rgba(255, 255, 255, 0.1)',
+                }
+              }}
+            >
+              <Typography variant="body1">{item.label}</Typography>
+            </MenuItem>
+          ))}
+        </Menu>
+      </>
+    );
+  }
+
+  return (
+    <Box sx={{ display: 'flex', gap: 2 }}>
+      {menuItems.map((item) => (
+        <Button 
+          key={item.path}
+          color="inherit" 
+          component={Link} 
+          to={item.path}
+          sx={{ 
+            '&:hover': { 
+              bgcolor: 'rgba(255, 255, 255, 0.1)',
+              transform: 'translateY(-2px)',
+              transition: 'transform 0.2s ease-in-out'
+            }
+          }}
+        >
+          {item.label}
+        </Button>
+      ))}
+    </Box>
+  );
+}
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -108,50 +221,7 @@ function App() {
                 Success Delivery Services
               </Typography>
               <Box sx={{ flexGrow: 1 }} />
-              <Box sx={{ display: 'flex', gap: 2 }}>
-                <Button 
-                  color="inherit" 
-                  component={Link} 
-                  to="/"
-                  sx={{ 
-                    '&:hover': { 
-                      bgcolor: 'rgba(255, 255, 255, 0.1)',
-                      transform: 'translateY(-2px)',
-                      transition: 'transform 0.2s ease-in-out'
-                    }
-                  }}
-                >
-                  Home
-                </Button>
-                <Button 
-                  color="inherit" 
-                  component={Link} 
-                  to="/about"
-                  sx={{ 
-                    '&:hover': { 
-                      bgcolor: 'rgba(255, 255, 255, 0.1)',
-                      transform: 'translateY(-2px)',
-                      transition: 'transform 0.2s ease-in-out'
-                    }
-                  }}
-                >
-                  About
-                </Button>
-                <Button 
-                  color="inherit" 
-                  component={Link} 
-                  to="/contact"
-                  sx={{ 
-                    '&:hover': { 
-                      bgcolor: 'rgba(255, 255, 255, 0.1)',
-                      transform: 'translateY(-2px)',
-                      transition: 'transform 0.2s ease-in-out'
-                    }
-                  }}
-                >
-                  Contact
-                </Button>
-              </Box>
+              <NavigationMenu />
             </Toolbar>
           </AppBar>
 
