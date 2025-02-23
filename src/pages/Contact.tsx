@@ -10,21 +10,28 @@ export default function Contact() {
       bgcolor: 'grey.50',
       margin: 0,
       padding: 0,
+      display: 'flex',
+      alignItems: 'center',
+      pt: '64px', // AppBar height
     }}>
-      <Container maxWidth="lg" sx={{ py: 8, pt: '88px' }}>
-        <Typography variant="h2" component="h1" gutterBottom align="center" sx={{ mb: 6 }}>
+      <Container maxWidth="lg" sx={{ py: 6 }}>
+        <Typography variant="h2" component="h1" gutterBottom align="center" sx={{ mb: 4 }}>
           Contact Us
         </Typography>
 
         <Grid container spacing={4} justifyContent="center">
           <Grid item xs={12} md={8}>
-            <Paper elevation={3} sx={{ p: 4 }}>
+            <Paper elevation={3} sx={{ 
+              p: 4,
+              borderRadius: 2,
+              boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+            }}>
               <Grid container spacing={4}>
                 <Grid item xs={12}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <PhoneIcon color="primary" sx={{ fontSize: 32, mr: 2 }} />
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <PhoneIcon color="primary" sx={{ fontSize: 40, mr: 3 }} />
                     <Box>
-                      <Typography variant="h6" gutterBottom>
+                      <Typography variant="h6" gutterBottom color="text.secondary">
                         Phone
                       </Typography>
                       <Typography variant="h4" color="primary" sx={{ fontWeight: 'bold' }}>
@@ -43,10 +50,10 @@ export default function Contact() {
                 </Grid>
 
                 <Grid item xs={12}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <EmailIcon color="primary" sx={{ fontSize: 32, mr: 2 }} />
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <EmailIcon color="primary" sx={{ fontSize: 40, mr: 3 }} />
                     <Box>
-                      <Typography variant="h6" gutterBottom>
+                      <Typography variant="h6" gutterBottom color="text.secondary">
                         Email
                       </Typography>
                       <Typography variant="h5" color="primary">
@@ -65,19 +72,24 @@ export default function Contact() {
                 </Grid>
 
                 <Grid item xs={12}>
-                  <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
-                    <AccessTimeIcon color="primary" sx={{ fontSize: 32, mr: 2, mt: 1 }} />
+                  <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+                    <AccessTimeIcon color="primary" sx={{ fontSize: 40, mr: 3, mt: 1 }} />
                     <Box>
-                      <Typography variant="h6" gutterBottom>
+                      <Typography variant="h6" gutterBottom color="text.secondary">
                         Hours of Operation
                       </Typography>
-                      <Typography variant="h5" color="primary" sx={{ mb: 2 }}>
+                      <Typography variant="h5" color="primary" sx={{ mb: 2, fontWeight: 'medium' }}>
                         Available 24/7, 365 Days a Year
                       </Typography>
-                      <Typography variant="body1">
+                      <Typography variant="body1" sx={{ mb: 2 }}>
                         We understand that medical deliveries can't wait. That's why we're available:
                       </Typography>
-                      <Box sx={{ mt: 2 }}>
+                      <Box sx={{ 
+                        ml: 2,
+                        borderLeft: 2,
+                        borderColor: 'primary.main',
+                        pl: 2
+                      }}>
                         <Typography variant="body1" sx={{ mb: 1 }}>
                           • Monday - Sunday: 24 Hours
                         </Typography>
@@ -93,7 +105,18 @@ export default function Contact() {
                 </Grid>
 
                 <Grid item xs={12}>
-                  <Typography variant="body1" align="center" sx={{ mt: 4, fontStyle: 'italic' }}>
+                  <Typography 
+                    variant="body1" 
+                    align="center" 
+                    sx={{ 
+                      mt: 4,
+                      fontStyle: 'italic',
+                      color: 'text.secondary',
+                      bgcolor: 'grey.50',
+                      py: 2,
+                      borderRadius: 1
+                    }}
+                  >
                     For urgent medical deliveries, please call us directly for immediate assistance.
                   </Typography>
                 </Grid>
