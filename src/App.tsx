@@ -20,10 +20,24 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Contact from './pages/Contact';
+import { useEffect, useState } from 'react';
 
 // Move all the home page content to Home component
 function Home() {
   const navigate = useNavigate();
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.pageYOffset);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', margin: 0, padding: 0 }}>
@@ -45,10 +59,21 @@ function Home() {
             backgroundColor: 'rgba(0, 0, 0, 0.6)',
             zIndex: 1,
           },
-          backgroundImage: 'url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1600")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'top center',
-          backgroundRepeat: 'no-repeat',
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: -100,  // Start the background higher up
+            left: 0,
+            right: 0,
+            bottom: -100,  // Extend the background below
+            backgroundImage: 'url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1600")',
+            backgroundSize: 'cover',
+            backgroundPosition: `center ${scrollPosition * 0.5}px`,
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed',
+            zIndex: 0,
+            transform: 'translateZ(0)',  // Hardware acceleration
+          },
           margin: 0,
           padding: 0,
         }}
