@@ -277,8 +277,8 @@ function Home() {
                 Contact
               </Typography>
               <Typography variant="body2">
-                Email: info@successdelivery.com<br />
-                Phone: (555) 123-4567
+                Email: jploomis2022@gmail.com<br />
+                Phone: (623) 810-3539
               </Typography>
             </Grid>
           </Grid>
