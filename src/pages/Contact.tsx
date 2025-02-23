@@ -28,7 +28,15 @@ export default function Contact() {
                         Phone
                       </Typography>
                       <Typography variant="h4" color="primary" sx={{ fontWeight: 'bold' }}>
-                        (623) 810-3539
+                        <a 
+                          href="tel:+16238103539" 
+                          style={{ 
+                            textDecoration: 'none', 
+                            color: 'inherit'
+                          }}
+                        >
+                          (623) 810-3539
+                        </a>
                       </Typography>
                     </Box>
                   </Box>
@@ -42,7 +50,15 @@ export default function Contact() {
                         Email
                       </Typography>
                       <Typography variant="h5" color="primary">
-                        jploomis2002@gmail.com
+                        <a 
+                          href="mailto:jploomis2002@gmail.com"
+                          style={{ 
+                            textDecoration: 'none', 
+                            color: 'inherit'
+                          }}
+                        >
+                          jploomis2002@gmail.com
+                        </a>
                       </Typography>
                     </Box>
                   </Box>
