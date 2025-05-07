@@ -12,13 +12,17 @@ export default function About() {
       minHeight: '100vh',
       margin: 0,
       padding: 0,
-      pt: { xs: '100px', sm: '120px' }, // Adjusted for AppBar + spacing
+      position: 'relative',
+      overflow: 'auto',
+      paddingTop: { xs: '220px', sm: '220px', md: '220px' }
     }}>
       {/* About Section */}
       <Box sx={{ 
         bgcolor: 'grey.100', 
         py: { xs: 6, sm: 8, md: 12 },
         position: 'relative',
+        mt: 0,
+        pt: 0,
         '&::before': {
           content: '""',
           position: 'absolute',

@@ -12,9 +12,9 @@ export default function Contact() {
       padding: 0,
       display: 'flex',
       alignItems: { xs: 'flex-start', md: 'center' },
-      pt: { xs: '100px', sm: '120px' },
-      pb: { xs: 4, md: 0 },
       position: 'relative',
+      overflow: 'auto',
+      paddingTop: { xs: '240px', sm: '230px', md: '220px' },
       '&::before': {
         content: '""',
         position: 'absolute',
@@ -30,13 +30,15 @@ export default function Contact() {
       <Container maxWidth="lg" sx={{ 
         py: { xs: 2, sm: 4, md: 8 }, 
         position: 'relative', 
-        zIndex: 1 
+        zIndex: 1,
+        mt: 0
       }}>
         <Box sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
           alignItems: 'center',
-          mb: { xs: 3, sm: 4, md: 6 }
+          mb: { xs: 3, sm: 4, md: 6 },
+          mt: { xs: 4, sm: 2, md: 0 }
         }}>
           <Typography 
             variant="h2" 
