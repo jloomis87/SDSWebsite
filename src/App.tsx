@@ -202,12 +202,22 @@ function App() {
               background: 'linear-gradient(90deg, #0D47A1 0%, #1565C0 50%, #1976d2 100%)',
               borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(8px)',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+              boxShadow: '0 4px 8px -1px rgba(0, 0, 0, 0.2), 0 8px 16px -2px rgba(0, 0, 0, 0.25), 0 12px 24px -4px rgba(0, 0, 0, 0.3)',
               position: 'fixed',
               top: 0,
               left: 0,
               right: 0,
               zIndex: 1100,
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: -1,
+                left: 0,
+                width: '100%',
+                height: '5px',
+                background: 'linear-gradient(to bottom, rgba(0,0,0,0.2), transparent)',
+                pointerEvents: 'none',
+              },
               '&::before': {
                 content: '""',
                 position: 'absolute',
@@ -221,7 +231,8 @@ function App() {
                   '0%': { backgroundPosition: '-200% 0' },
                   '100%': { backgroundPosition: '200% 0' }
                 },
-                backgroundSize: '200% 100%'
+                backgroundSize: '200% 100%',
+                zIndex: 1,
               }
             }}
           >
@@ -276,8 +287,18 @@ function App() {
                       alt="SDS Logo" 
                       style={{ 
                         height: '160px',
-                        width: 'auto' 
-                      }} 
+                        width: 'auto',
+                        filter: 'drop-shadow(0px 2px 3px rgba(0,0,0,0.4)) drop-shadow(0px 4px 8px rgba(0,0,0,0.3))',
+                        transition: 'all 0.2s ease',
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.filter = 'drop-shadow(0px 3px 4px rgba(0,0,0,0.5)) drop-shadow(0px 6px 10px rgba(0,0,0,0.4))';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.filter = 'drop-shadow(0px 2px 3px rgba(0,0,0,0.4)) drop-shadow(0px 4px 8px rgba(0,0,0,0.3))';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                      }}
                     />
                   </Box>
                 </IconButton>
@@ -287,14 +308,29 @@ function App() {
                     fontWeight: '700',
                     fontSize: { xs: '1.2rem', sm: '1.8rem', md: '2.5rem' },
                     whiteSpace: { xs: 'normal', sm: 'nowrap' },
-                    letterSpacing: '0.5px',
+                    letterSpacing: '1.5px',
                     textAlign: { xs: 'center', sm: 'left' },
-                    textShadow: '0 2px 4px rgba(0, 0, 0, 0.15)',
-                    background: 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(240,240,240,1) 100%)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    color: 'transparent',
-                    WebkitTextFillColor: 'transparent'
+                    color: '#ffffff',
+                    textShadow: '0px 2px 3px rgba(0,0,0,0.4), 0px -2px 1px rgba(255,255,255,0.3)',
+                    textTransform: 'uppercase',
+                    padding: '0.1em 0.2em',
+                    fontFamily: "'Arial', sans-serif",
+                    position: 'relative',
+                    transition: 'all 0.2s ease',
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      left: 0,
+                      right: 0,
+                      bottom: -2,
+                      height: '2px',
+                      background: 'linear-gradient(90deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%)',
+                      borderRadius: '50%',
+                      boxShadow: '0 2px 6px rgba(0,0,0,0.3)',
+                    },
+                    '&:hover': {
+                      textShadow: '0px 3px 4px rgba(0,0,0,0.5), 0px -2px 1px rgba(255,255,255,0.4)',
+                    }
                   }}
                 >
                   Success Delivery Services
